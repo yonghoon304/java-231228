@@ -1,0 +1,63 @@
+package b_Chapter01;
+//		자바 형 변환
+//		하나의 타입을 다른 타입으로 바꾸는 것
+//		byte(1) < short(2) < int(4)  < long(8)  < float(4) < double(8)
+//			메모리 설계 상 정수 타입보다 실수 타입이 더 크다.
+//		자료형의 크기에 따른 형 변환 규칙
+//		1. 강제 형 변환 (명시적)
+//			: 크키가 작은 자료형으로의 변환
+
+//		2. 자동 형 변환 (묵시적)
+//			: 크기가 큰 자료형으로 변환
+
+public class C_TypeConversion {
+
+	public static void main(String[] args) {
+		// 자동 형 변환
+		byte small_bowl = 10;   //작은 그릇
+		int big_bowl=10000; // 큰 그릇
+		big_bowl=small_bowl;  // 작은 범위의 타입을 큰 타입에 넣는 경우, 문제없음
+		
+		byte a=32; //1바이트 자료형
+		short b = a; //1바이트로 저장된 자료형에 2바이트로 변환
+		int c= b;
+		long d= c;
+		
+		//강제 형 변환
+		int number =1234;
+		float float_number = number; //int 보다 float이 더 크다.
+		float flo_number =3.14f;
+//		int int_number = flo_number;  - Error float이 int보다 크기때문에 형 변환 안됨 > 값 손실
+//		
+//		명시적 형 변환 : (작은 변환자료형)데이터값;
+		int int_number = (int)flo_number;
+		
+		int num = 60000;
+//		byte value - num; -  오류
+		byte value =(byte)num;
+		
+		double dbNum =12.3456;
+		int intNum=(int)dbNum;
+		
+		System.out.println(intNum);
+		
+//		char 지료형의 형 변환
+//		char 자료형의 경우 한 개의 문자 값에 대한 자료형
+//		문자값을 작은 따음표로 감싸는 형태
+		char a1 = 'a';  //문자값
+		char a2 = 97; //아스키코드
+		char a3 = '\u0061'; //유니코드 
+		System.out.println(a1);
+		System.out.println(a2);
+		System.out.println(a3);
+		
+//		byte자료형을 char 자료형으로 변환
+//		캐릭터 자료형에는 음수 표현식 X
+//			byte의 음수자료형에 대한 오류를 방지하기 위해 변환X
+		byte byte_type =10;
+//		char char_type = byte_type;  > Error
+//		short 자료형으로는 변환 가능
+		
+	}
+
+}
